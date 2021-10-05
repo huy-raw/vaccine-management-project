@@ -310,7 +310,23 @@ public class InjectionList {
         
         
     }
+    //Search student by ID
+    public void searchInjectionByID() {
+         sc  = new  Scanner(System.in);
+        String _idStudent = Util.getID(Message.MSG_FIND_INPUT_ID, Message.MSG_FIND_ERROR_ID_STUDENT, Constants.REGEX_STUDENT_ID);
+        injectionList.forEach(injection -> {
+            if(injection.getStudentID().equalsIgnoreCase(_idStudent)) {
+                System.out.println("Information students need to find is: ");
+                System.out.println(String.format("|%-12s|%-12s|%-15s|%-15s|%-10s|%-15s|%-10s|%-15s|", "INJECTION ID", "STUDENT ID", "STUDENT NAME", "VACCINE NAME",
+                        "DATE 1", "PLACE1", "DATE 2", "PLACE 2" ));
+                System.out.println(injection.toString());
+                
+            }else System.out.println("Student not found!!!");
+        });
+       
+        
+    }
     
-   
+    
 
 }

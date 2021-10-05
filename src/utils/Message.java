@@ -22,7 +22,7 @@ public class Message {
     //Error msg
     public static final String MSG_ERROR_ID_EMPTY = "ID can not be empty!! Please input ID following format"  ;  
     public static final String MSG_ERROR_ID_INJECTION_FORMAT = "Injection ID must be start with I and after it is six number!! (eg: I123456...)";
-    public static final String MSG_ERROR_ID_INJECTION_STUDENT = "Student ID must be start with SE and after it is six number! (eg: SE150324...)";
+    public static final String MSG_ERROR_ID_INJECTION_STUDENT = "Student ID must be start with SE, SA, SS and after it is six number! (eg: SE150324...)";
     public static final String MSG_ERROR_ID_NOTFOUND = "The ID you just entered could not be found. Please input again";
     public static final String MSG_ERROR_DATE_INJECTION = "Date input  must be following format dd/MM/YYYY  ";
     public static final String MSG_ERROR_PLACE_INJECTION = "Place input invalid: ";
@@ -53,6 +53,11 @@ public class Message {
     public static final String MSG_SAVE_TO_FILE_INPUT_FNAME = " INPUT name file you wana to save (eg: thaythongdeptrai) the file will be save thaythongdeptrai.txt";
     public static final String MSG_SAVE_TO_FILE_INPUT_FNAME_ERROR = " File name can not be null";
     public static final String MSG_SAVE_TO_FILE_DEFAULT = "The file name is : Injection.txt";
+    
+    //Find student
+    public static final String MSG_FIND_INPUT_ID = "INPUT ID student you want to find ? (eg: SE150000....)";
+    public static final String MSG_FIND_ERROR_ID_STUDENT = "Student ID must be start with SE, SA, SS and after it is six number! (eg: SE150324...)";
+    
     
     
     

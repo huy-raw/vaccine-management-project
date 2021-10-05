@@ -21,7 +21,7 @@ public class InjectionManagement {
 
     public static void main(String[] args) throws IOException {
         boolean isExit;
-        sc = new Scanner(System.in);
+          sc = new Scanner(System.in);
         injection = new InjectionList();
         do {
             isExit = appMenu();
@@ -45,12 +45,14 @@ public class InjectionManagement {
             case 2 ->
                 injection.listAllInjection();
             case 3 ->
-                injection.updateInjection();
+                injection.searchInjectionByID();
             case 4 ->
-                injection.deleteInjection();
+                injection.updateInjection();
             case 5 ->
+                injection.deleteInjection();
+            case 6 ->
                 injection.exportToFile();
-            case 6 -> {
+            case 7 -> {
                 return true;
             }
         }

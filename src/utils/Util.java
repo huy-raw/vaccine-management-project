@@ -115,10 +115,11 @@ public class Util {
         System.out.println(Constants.UI_DIV);
         System.out.println("1 - Add a new injection");
         System.out.println("2 - Print the list injection ");
-        System.out.println("3 - Update injection");
-        System.out.println("4 - Remove injection");
-        System.out.println("5 - Save to file");
-        System.out.println("6 - Exit");
+        System.out.println("3 - Search student by ID ");
+        System.out.println("4 - Update injection");
+        System.out.println("5 - Remove injection");
+        System.out.println("6 - Save to file");
+        System.out.println("7 - Exit");
 
     }
 
