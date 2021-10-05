@@ -12,7 +12,7 @@ package utils;
 public class Message {
 
     //Input msg
-    public static final String MSG_INPUT_ID_INJECTION = "INPUT INJECTION ID (eg: SE123456, AB456890...): ";
+    public static final String MSG_INPUT_ID_INJECTION = "INPUT INJECTION ID (eg: I123456, I456890...): ";
     public static final String MSG_INPUT_ID_STUDENT = "INPUT STUDENT ID (eg: SE150000, SE1500...): ";
     public static final String MSG_IPUT_ID_VACCINE = "INPUT VACCINE ID following  the list vaccine: ";
     public static final String MSG_INPUT_DATE_INJECTION = "INPUT DATE injection following the format (eg: 12/02/2021): ";
@@ -21,7 +21,7 @@ public class Message {
 
     //Error msg
     public static final String MSG_ERROR_ID_EMPTY = "ID can not be empty!! Please input ID following format"  ;  
-    public static final String MSG_ERROR_ID_INJECTION_FORMAT = "Injection ID must be start with two character and after it is six number!! (eg: AB123456...)";
+    public static final String MSG_ERROR_ID_INJECTION_FORMAT = "Injection ID must be start with I and after it is six number!! (eg: I123456...)";
     public static final String MSG_ERROR_ID_INJECTION_STUDENT = "Student ID must be start with SE and after it is six number! (eg: SE150324...)";
     public static final String MSG_ERROR_ID_NOTFOUND = "The ID you just entered could not be found. Please input again";
     public static final String MSG_ERROR_DATE_INJECTION = "Date input  must be following format dd/MM/YYYY  ";
@@ -32,7 +32,7 @@ public class Message {
     
     
     //Delete msg
-    public static final String MSG_DELETE_INJECTION_INPUT_ID = "Input ID injection you want to delete (eg: SE123456, AB456890...): ";
+    public static final String MSG_DELETE_INJECTION_INPUT_ID = "Input ID injection you want to delete (eg: I123456, I456890...): ";
     public static final String MSG_DELETE_INJECTION_ERROR_ID_EXIST = "The ID dont exist!!";
     public static final String MSG_DELETE_INJECTION_COMFIRM = "The ID you just entered has been found. Do you really want to delete it ???";
     public static final String MSG_DELETE_INJECTION_SUCCESSFULLY = " have been delete succesfully!!";
