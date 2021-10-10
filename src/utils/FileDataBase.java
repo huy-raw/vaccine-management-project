@@ -6,6 +6,7 @@
 package utils;
 
 
+import data.Injection;
 import data.Student;
 import data.Vaccine;
 import java.io.File;
@@ -55,6 +56,23 @@ public class FileDataBase {
     
     }
     
+    
+    public static ArrayList<Injection> loadInjectionList(String path) {
+        ArrayList<Injection> injectionList = new ArrayList<>();
+        File fileVaccine = new File(path);
+        try {
+            FileInputStream fis = new FileInputStream(fileVaccine);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            while (fis.available() > 0) {
+                Injection injection = (Injection) ois.readObject();
+                injectionList.add(injection);
+            }
+        } catch (ClassNotFoundException | IOException e) {
+        }
+
+        return injectionList;
+    
+    }
      
     
     

@@ -18,4 +18,5 @@ public class Constants {
     public static final String UI_DIV = "------------------------------------ ";
     public static final String STUDENT_FILE_PATH = "student.txt";
     public static final String VACCINE_FILE_PATH = "vaccine.txt";
+    public static final String INJECTION_FILE_PATH = "injection.txt";
 }

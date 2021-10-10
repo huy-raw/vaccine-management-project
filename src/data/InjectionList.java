@@ -24,7 +24,7 @@ import utils.Util;
  */
 public class InjectionList {
 
-    java.util.ArrayList<Injection> injectionList = new ArrayList<>();
+    java.util.ArrayList<Injection> injectionList = FileDataBase.loadInjectionList(Constants.INJECTION_FILE_PATH);
     Scanner sc;
 
     public InjectionList() {
@@ -273,7 +273,8 @@ public class InjectionList {
         });
         System.out.println(Constants.UI_DIV);
     }
-    
+        
+ 
     //second day must be greater than first day 4 weeks to 12 weeks
     public boolean checkDate(Date date1, Date date2){
         long checkDay = date2.getTime() - date1.getTime();
