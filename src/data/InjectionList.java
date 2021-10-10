@@ -291,7 +291,7 @@ public class InjectionList {
             export(fileName+".txt");
             System.out.println("Export successfully!!");
         }else{
-            fileName = "Injection.txt";
+            fileName = Constants.INJECTION_FILE_PATH;
             export(fileName);
             System.out.println("Export successfully!!");
         }
