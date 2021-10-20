@@ -58,12 +58,14 @@ public class Util {
                 date = format.parse(sDate);
                 if (date.compareTo(currentDate) >= 0) 
                     return date;
-                 else if (date.compareTo(currentDate) < 0)
+                else if (date.compareTo(currentDate) < 0){
                     System.out.println("Expired date must be greater than current date");
-                
+                    System.out.println(Constants.UI_DIV);
+                }
 
             } catch (ParseException e) {
                 System.out.println(errorMsg);
+                System.out.println(Constants.UI_DIV);
             }
         } while (true);
 

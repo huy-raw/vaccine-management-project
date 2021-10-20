@@ -119,34 +119,34 @@ public class InjectionList {
     
     //checking update
     public void updateInjection(){
-        boolean checking = false;
+        boolean checking = true;
         do {            
             
             sc = new Scanner(System.in);
             String _id = Util.getID(Message.MSG_UPDATE_INJECTION_INPUT_ID, Message.MSG_ERROR_ID_INJECTION_FORMAT, Constants.REGEX_INJECTION_ID);
+            
             for (Injection injection : injectionList) {
                
-                if(injection.isInjection2()) {                  
+                if(injection.getInjectionID().equalsIgnoreCase(_id) && injection.isInjection2()) {                  
                     System.out.println(Message.MSG_UPDATE_SUCCESSFULLY_2_INJECTION);
-                    boolean decide = Util.chooseOption("Do you want to continue updating ?. Please choose Y or N ?");
-                    if(!decide) return;
-                    checking = true; 
+                    return;
                     
                 }
-                else if (!injection.isInjection1()) {
-                    System.out.println(Message.MSG_UPDATE_NOT_HAVE_1ST_INJECTION);
-                    checking = true;
-                }
-                else if (injection.isInjection1()) {                   
+                else if (injection.getInjectionID().equalsIgnoreCase(_id) && injection.isInjection1()) {                   
                     System.out.println(Message.MSG_INPUT_ID_FOUND_SUCCESSFULY);
                     System.out.println(injection.toString());
-                    update(_id);
-                    checking = false;
-                }
+                    update(_id);      
+                    return;
                     
-                
+                }
             }
             
+            
+            if(checking) {
+                System.out.println(Message.MSG_UPDATE_NOT_HAVE_1ST_INJECTION);
+                checking = false;
+            }      
+               
         } while (checking);
     }
     
@@ -184,8 +184,11 @@ public class InjectionList {
                 injection.setInjection2(injection2);
                 System.out.println("Student has completed 2 injections!-Congatulation you can go everywhere you want!!!");
                 System.out.println(Constants.UI_DIV);
-            }else System.out.println(Message.MSG_UPDATE_INJECTION_NOT_FOUND);         
+                
+            }
+           
         });
+        
     }
 
     //check duplicate id injection
@@ -205,7 +208,7 @@ public class InjectionList {
     
     //check student have been injection
     private int checkStuExistInList(String ID) {
-         if (injectionList == null) {
+        if (injectionList == null) {
             return -1;
         } else {
             for (Injection injection : injectionList) {
@@ -221,6 +224,7 @@ public class InjectionList {
     //delete injection
     public void deleteInjection() {
         String injectionID;
+        boolean isExist = false;
         injectionID = Util.getID(Message.MSG_DELETE_INJECTION_INPUT_ID, Message.MSG_DELETE_INJECTION_ERROR_ID_EXIST, Constants.REGEX_INJECTION_ID);
         System.out.println(Constants.UI_DIV);
 
@@ -230,11 +234,14 @@ public class InjectionList {
                     System.out.println("The injection have ID: " + injectionID);
                     if (delete(injectionID)) {
                         System.out.println("The injection have ID : " + injectionID + Message.MSG_DELETE_INJECTION_SUCCESSFULLY);
+                        isExist = true;
                     }
-                    break;
+                    return;
                 }
             }
         }
+        if(!isExist) System.out.println("Student not found!!!");
+        
     }
 
     public boolean delete(String injectionID) {
@@ -284,7 +291,7 @@ public class InjectionList {
     
     //save to file
     
-    public void exportToFile() throws IOException{
+    public void exportToFile() {
         String fileName;
         if(Util.chooseOption(Message.MSG_SAVE_TO_FILE_OPTION)) {
             fileName = Util.getString(Message.MSG_SAVE_TO_FILE_INPUT_FNAME, Message.MSG_SAVE_TO_FILE_INPUT_FNAME_ERROR);
@@ -297,7 +304,7 @@ public class InjectionList {
         }
     }
             
-    public void export(String path) throws FileNotFoundException, IOException {
+    public void export(String path){
         String fileName= path;
         try (FileOutputStream file = new FileOutputStream(fileName)) {
             ObjectOutputStream oStream = new ObjectOutputStream(file);
@@ -305,27 +312,27 @@ public class InjectionList {
                 oStream.writeObject(injection);
             }
             oStream.close();
-            file.close();
-            
+            file.close();      
+        } catch (IOException e){
+            System.out.println("Error export!!");
         }
-        
- 
     }
     //Search student by ID
     public void searchInjectionByID() {
-         sc  = new  Scanner(System.in);
+        boolean isExist = false;
+        sc  = new  Scanner(System.in);
         String _idStudent = Util.getID(Message.MSG_FIND_INPUT_ID, Message.MSG_FIND_ERROR_ID_STUDENT, Constants.REGEX_STUDENT_ID);
-        injectionList.forEach(injection -> {
+        for (Injection injection : injectionList) {
             if(injection.getStudentID().equalsIgnoreCase(_idStudent)) {
                 System.out.println("Information students need to find is: ");
                 System.out.println(String.format("|%-12s|%-12s|%-15s|%-15s|%-10s|%-15s|%-10s|%-15s|", "INJECTION ID", "STUDENT ID", "STUDENT NAME", "VACCINE NAME",
                         "DATE 1", "PLACE1", "DATE 2", "PLACE 2" ));
-                System.out.println(injection.toString());
-                
-            }else System.out.println("Student not found!!!");
-        });
-       
+                System.out.println(injection.toString());               
+                return;
+            } 
+        }
         
+        if(!isExist) System.out.println("Student not found!!!");  
     }
     
     

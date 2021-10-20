@@ -52,7 +52,7 @@ public class Injection extends Student implements Serializable{
         this.place2 = place2;
         this.date2 = date2;
         this.injection1 = injection1;
-        this.injection1 = injection2;
+        this.injection2 = injection2;
         
     }
 

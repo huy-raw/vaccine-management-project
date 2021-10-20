@@ -19,7 +19,7 @@ public class InjectionManagement {
     private static int userChoice;
     private static InjectionList injection;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         boolean isExit;
           sc = new Scanner(System.in);
         injection = new InjectionList();
@@ -28,14 +28,14 @@ public class InjectionManagement {
         } while (!isExit);
     }
 
-    public static boolean appMenu() throws IOException {
+    public static boolean appMenu() {
         sc = new Scanner(System.in);
         utils.Util.printManageMenu();
         try {
             do{
             userChoice = Integer.parseInt(sc.nextLine());
-            if(userChoice <0 || userChoice > 6) System.out.println("Your option invalid!! Please try again");
-            }while(userChoice< 0 || userChoice > 6);
+            if(userChoice <0 || userChoice > 7) System.out.println("Your option invalid!! Please try again");
+            }while(userChoice< 0 || userChoice > 7);
         } catch (NumberFormatException ex) {
             System.out.println(Message.ERROR_WRONG_INPUT_INT);
         }
